@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Sayangg</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #ffe6f2;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+        
+        /* Halaman Awal */
+        #home-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: opacity 0.5s;
+        }
+        
+        .big-love {
+            font-size: 200px;
+            color: #ff4d6d;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+            margin-bottom: 30px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .instruction {
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+        
+        /* Halaman Presentasi */
+        #presentation-page {
+            display: none;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            padding: 20px;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-content {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-container {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        /* Dekorasi */
+        .decoration {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 100;
+        }
+        
+        .decoration:hover {
+            transform: scale(1.2);
+        }
+        
+        .love {
+            color: #ff4d6d;
+            font-size: 40px;
+        }
+        
+        .balloon {
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .balloon1 { background-color: #ff4d6d; top: 10%; left: 10%; }
+        .balloon2 { background-color: #ff9ebb; top: 15%; right: 30%; }
+        .balloon3 { background-color: #ff85a1; bottom: 20%; left: 5%; }
+        .balloon4 { background-color: #ff4d6d; bottom: 30%; right: 10%; }
+        
+        .love1 { top: 20%; left: 5%; }
+        .love2 { top: 15%; right: 5%; }
+        .love3 { bottom: 10%; left: 20%; }
+        .love4 { bottom: 10%; right: 15%; }
+        
+        /* Pemutar Musik */
+        .music-player {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #ff4d6d;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        
+        .music-title {
+            font-size: 14px;
+            margin: 0 10px;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Halaman Kejutan */
+        #surprise-page {
+            display: none;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(45deg, #ff4d6d, #ff9ebb);
+            color: white;
+        }
+        
+        .surprise-content {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            max-width: 600px;
+        }
+        
+        .final-love {
+            font-size: 100px;
+            margin-bottom: 20px;
+            animation: pulse 1s infinite;
+            cursor: pointer;
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            .slide-content {
+                flex-direction: column;
+            }
+            
+            .big-love {
+                font-size: 80px;
+            }
+            
+            .final-love {
+                font-size: 70px;
+            }
+        }
+        
+       /*animasi love*/
+       body {
+    margin: 0;
+    height: 100vh;
+    background: #ffe6f2;
+    overflow: hidden;
+}
+
+.lopee {
+    position: fixed;
+    bottom: -50px;
+    font-size: 24px;
+    animation: naik 6s linear forwards;
+    opacity: 0.9;
+}
+
+@keyframes naik {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+        
+    </style>
+</head>
+<body>
+    <!-- Halaman Awal -->
+    <div id="home-page">
+        <div class="big-love" onclick="startPresentation()">🤍</div>
+        <p class="instruction">Klik hati untuk memulai</p>
+    </div>
+    
+    <!-- Halaman Presentasi -->
+    <div id="presentation-page">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <div class="slide-content">
+                <div class="image-container">
+                    <img src="foto1.jpg"=Gambar+1" alt="Gambar 1">
+                </div>
+                <div class="text-container">
+                    <h2>Andinn Kecil</h2>
+                    <p>Haii kenalin namanya Nasywa Andini Zulfa Mustofa dia lahir di Gunungkidul 23 Februari 2009 diaa besok tanggal 23 Februari 2026 berumur 17 tahun udahh mulai dewasa,fotoo diatas itu waktu dia kelas 8 smp masih umur 13 masih lucuu lucunyaa diaa.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="image-container">
+                    <img src="foto2.jpg"=Gambar+2" alt="Gambar 2">
+                </div>
+                <div class="text-container">
+                    <h2>Andinn Mode Behh</h2>
+                    <p>Ini foto diaa pas kelas 9 smp foto yearbook dia.keliatan cantikk,kerenn,bedaa sama foto tadi masihh lucuu lucuunyaa,auranya tu behh kerenn bett.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="image-container">
+                    <img src="foto3.jpg"=Gambar+3" alt="Gambar 3">
+                </div>
+                <div class="text-container">
+                    <h2>Andinn ucuu</h2>
+                    <p>kaloo ini kayaknya masih kelas 9 juga yaa tapi bedaa dengan yang tadii yang inii ucuu liatt senyumnyaa maniss bangett dan kayakk anakk kecill gituu lucuu sekalii.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="image-container">
+                    <img src="foto4.jpg"=Gambar+4" alt="Gambar 4">
+                </div>
+                <div class="text-container">
+                    <h2>Andin SMA</h2>
+                    <p>yang ini foto diaa udahh SMA yaa udahh gedee tapi kek masih sama aja kek anakk kicikkk masih lucuu jugaa disini diaa tuu udah mulai keliatan dewasa yaa walaupun nek sama aku masih kayak anak kecil tapi aku sukaa ituu.</p>
+                </div>
+            </div>
+        </div>
+        
+                <!-- Slide 5 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="image-container">
+                    <img src="foto5.jpg"=Gambar+5" alt="Gambar 5">
+                </div>
+                <div class="text-container">
+                    <h2>Andin sekarang</h2>
+                    <p>haii udahh sampaii di andin tahun ini yahh,liatt gaa perjuangan diaa?,proses diaa?,ituu selamaa samaa akuu kecuali yang awal tadi yaa,dan inii jadilah Andin yang sekarang inii,sudahh kelas 11 otw 12 guys udah mau 17 tahun juga udah sejauh itu dia melangkah banyakk yang udah dia laluin entahh ituu bikin dia  hancur sampai titik 0 dia sampai dia bertemu aku dan aku coba menuntun diaa sampaii sekarang ini dan seterusnya.</p>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Dekorasi -->
+        <div class="decoration love love1" onclick="playSound('pop')">❤️</div>
+        <div class="decoration love love2" onclick="playSound('pop')">❤️</div>
+        <div class="decoration love love3" onclick="playSound('pop')">❤️</div>
+        <div class="decoration love love4" onclick="playSound('pop')">❤️</div>
+        
+        <div class="decoration balloon balloon1" onclick="playSound('pop')"></div>
+        <div class="decoration balloon balloon2" onclick="playSound('pop')"></div>
+        <div class="decoration balloon balloon3" onclick="playSound('pop')"></div>
+        <div class="decoration balloon balloon4" onclick="playSound('pop')"></div>
+        
+        <!-- Navigasi -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="prevSlide()">Sebelumnya</button>
+            <button class="nav-btn" onclick="nextSlide()">Selanjutnya</button>
+        </div>
+        
+        <!-- Pemutar Musik -->
+        <div class="music-player">
+            <!--<button class="music-btn" onclick="prevSong()">⏮</button>-->
+            <button class="music-btn" onclick="togglePlay()">▶️</button>
+            <button class="music-btn" onclick
+              ="togglePause()">⏸️</button>
+           <!--<button class="music-btn" onclick="nextSong()">⏭</button>-->
+            <div class="music-title" id="current-song">Pencet play biar ga sepi</div>
+        </div>
+    </div>
+    
+    <!-- Halaman Kejutan -->
+    <div id="surprise-page">
+        <div class="final-love" onclick="goToFirstSlide()">❤️</div>
+        <div class="surprise-content">
+            <h2>Kejutan!</h2>
+            <p>ehh udahh slide terakhir aja mass punya kejutan nih buat adekk.</p>
+            <p>Klik hati yaa buat liat kejutannya.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Variabel global
+        let currentSlide = 0;
+        let currentSong = 0;
+        let isPlaying = false;
+        let isPause = false;
+        let audioPlayer = new Audio();
+        
+        // Daftar lagu (gunakan URL lagu Anda sendiri)
+        const songs = [
+            { title: "Fix You Sayangg", src: "Coldplay - Fix You (Official Video).mp3" },
+            { title: "Lagu Romantis 2", src: "https://example.com/song2.mp3" },
+            { title: "Lagu Romantis 3", src: "https://example.com/song3.mp3" }
+        ];
+        
+        // Efek suara untuk dekorasi
+        function playSound(type) {
+            if (type === 'pop') {
+                const pop = new Audio('yayy.mp3');
+                pop.play();
+            }
+        }
+        
+        // Memulai presentasi
+        function startPresentation() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('presentation-page').style.display = 'block';
+            showSlide(currentSlide);
+        }
+        
+        // Navigasi slide
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+            if (n >= slides.length) {
+                // Jika di slide terakhir, tampilkan kejutan
+                document.getElementById('presentation-page').style.display = 'none';
+                document.getElementById('surprise-page').style.display = 'flex';
+                return;
+            }
+            if (n < 0) n = 0;
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            slides[n].classList.add('active');
+            currentSlide = n;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        // Kembali ke slide pertama dari halaman kejutan
+        function goToFirstSlide()
+            { window.location.href = "surprise.html"; }
+        
+        // Kontrol musik
+        function loadSong(index) {
+            audioPlayer.src = songs[index].src;
+            document.getElementById('current-song').textContent = songs[index].title;
+            if (isPlaying) {
+                audioPlayer.play();
+            }
+        }
+        
+        function togglePlay() {
+            if (isPlaying) {
+                <!--audioPlayer.pause();-->
+                isPlaying = false;
+            } else {
+                if (audioPlayer.src === "") {
+                    loadSong(currentSong);
+                }
+                audioPlayer.play();
+                isPlaying = true;
+            }
+        }
+        
+        function togglePause() {
+            if (isPause) {
+              isPause = true;
+            } else {
+                if (audioPlayer.src === "") {
+                    loadSong(currentSong);
+                }
+                audioPlayer.pause();
+                isPlaying = false;
+            }
+        }
+        
+        function nextSong() {
+            currentSong = (currentSong + 1) % songs.length;
+            loadSong(currentSong);
+        }
+        
+        function prevSong() {
+            currentSong = (currentSong - 1 + songs.length) % songs.length;
+            loadSong(currentSong);
+        }
+        
+        // Event listener untuk keyboard
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (event.key === ' ') {
+                togglePlay();
+            }
+        });
+        
+        function buatLove() {
+    const love = document.createElement("div");
+    love.className = "lopee";
+    love.innerHTML = "🤍";
+
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.fontSize = Math.random() * 20 + 20 + "px";
+    love.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+    document.body.appendChild(love);
+
+    setTimeout(() => {
+        love.remove();
+    }, 7000);
+}
+
+setInterval(buatLove, 300);
+        
+    </script>
+</body>
+</html>
